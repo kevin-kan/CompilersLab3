@@ -1,0 +1,3 @@
+yacc -d -J mathexpr.y
+jflex -q mathexpr.flex
+javac MathExprParser.java Parser.java Yylex.java
