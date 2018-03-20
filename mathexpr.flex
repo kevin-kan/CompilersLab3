@@ -42,12 +42,16 @@
 
 letter = [A-Za-z]
 digit = [0-9]
+mulop = [*\/]
+
 
 %%
 
+{letter}+				{ return ParserTokens.ERROR; }
 {digit}+				{ value = Integer.parseInt(yytext());
 						  yyparser.yylval = new ParserVal(value);
 						  return ParserTokens.NUMBER; }
+{mulop}					{ return ParserTokens.MULOP; }
 "+"						{ return ParserTokens.ADDOP; }
 "-"						{ return ParserTokens.SUBOP; }
 "("						{ return ParserTokens.LPAREN; }
