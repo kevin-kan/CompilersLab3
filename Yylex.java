@@ -32,15 +32,9 @@ class Yylex {
    * Translates characters to character classes
    */
   private static final String ZZ_CMAP_PACKED = 
-<<<<<<< HEAD
-    "\11\0\1\7\1\6\1\10\1\10\1\6\22\0\1\7\7\0\1\4"+
-    "\1\5\1\0\1\2\1\0\1\3\2\0\12\1\7\0\32\0\6\0"+
-    "\32\0\12\0\1\10\u1fa2\0\1\10\1\10\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\udfe6\0";
-=======
-    "\11\0\1\11\1\10\1\12\1\12\1\10\22\0\1\11\7\0\1\6"+
-    "\1\7\1\3\1\4\1\0\1\5\1\0\1\3\12\2\7\0\32\1"+
-    "\6\0\32\1\12\0\1\12\u1fa2\0\1\12\1\12\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\udfe6\0";
->>>>>>> 20d68a0e05cd243d9e2d75d7ecc74eb546c87653
+    "\11\0\1\12\1\11\1\13\1\13\1\11\22\0\1\12\7\0\1\7"+
+    "\1\10\1\3\1\5\1\0\1\6\1\0\1\4\12\2\7\0\32\1"+
+    "\6\0\32\1\12\0\1\13\u1fa2\0\1\13\1\13\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\udfe6\0";
 
   /** 
    * Translates characters to character classes
@@ -53,19 +47,11 @@ class Yylex {
   private static final int [] ZZ_ACTION = zzUnpackAction();
 
   private static final String ZZ_ACTION_PACKED_0 =
-<<<<<<< HEAD
-    "\1\0\1\1\1\2\1\3\1\4\1\5\1\6\1\7"+
-    "\1\10";
-
-  private static int [] zzUnpackAction() {
-    int [] result = new int[9];
-=======
     "\1\0\2\1\1\2\1\3\1\4\1\5\1\6\1\7"+
-    "\1\10\1\11";
+    "\1\10\1\11\1\12";
 
   private static int [] zzUnpackAction() {
-    int [] result = new int[11];
->>>>>>> 20d68a0e05cd243d9e2d75d7ecc74eb546c87653
+    int [] result = new int[12];
     int offset = 0;
     offset = zzUnpackAction(ZZ_ACTION_PACKED_0, offset, result);
     return result;
@@ -90,19 +76,11 @@ class Yylex {
   private static final int [] ZZ_ROWMAP = zzUnpackRowMap();
 
   private static final String ZZ_ROWMAP_PACKED_0 =
-<<<<<<< HEAD
-    "\0\0\0\11\0\22\0\11\0\11\0\11\0\11\0\33"+
-    "\0\44";
+    "\0\0\0\14\0\30\0\44\0\14\0\14\0\14\0\14"+
+    "\0\14\0\14\0\60\0\74";
 
   private static int [] zzUnpackRowMap() {
-    int [] result = new int[9];
-=======
-    "\0\0\0\13\0\26\0\41\0\13\0\13\0\13\0\13"+
-    "\0\13\0\54\0\67";
-
-  private static int [] zzUnpackRowMap() {
-    int [] result = new int[11];
->>>>>>> 20d68a0e05cd243d9e2d75d7ecc74eb546c87653
+    int [] result = new int[12];
     int offset = 0;
     offset = zzUnpackRowMap(ZZ_ROWMAP_PACKED_0, offset, result);
     return result;
@@ -126,18 +104,11 @@ class Yylex {
 
   private static final String ZZ_TRANS_PACKED_0 =
     "\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11"+
-<<<<<<< HEAD
-    "\13\0\1\3\15\0\1\10\11\0\1\11\1\0";
+    "\1\12\1\13\1\14\16\0\1\3\14\0\1\4\22\0"+
+    "\1\13\14\0\1\14\1\0";
 
   private static int [] zzUnpackTrans() {
-    int [] result = new int[45];
-=======
-    "\1\12\1\13\15\0\1\3\13\0\1\4\20\0\1\12"+
-    "\13\0\1\13\1\0";
-
-  private static int [] zzUnpackTrans() {
-    int [] result = new int[66];
->>>>>>> 20d68a0e05cd243d9e2d75d7ecc74eb546c87653
+    int [] result = new int[72];
     int offset = 0;
     offset = zzUnpackTrans(ZZ_TRANS_PACKED_0, offset, result);
     return result;
@@ -175,17 +146,10 @@ class Yylex {
   private static final int [] ZZ_ATTRIBUTE = zzUnpackAttribute();
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
-<<<<<<< HEAD
-    "\1\0\1\11\1\1\4\11\2\1";
+    "\1\0\1\11\2\1\6\11\2\1";
 
   private static int [] zzUnpackAttribute() {
-    int [] result = new int[9];
-=======
-    "\1\0\1\11\2\1\5\11\2\1";
-
-  private static int [] zzUnpackAttribute() {
-    int [] result = new int[11];
->>>>>>> 20d68a0e05cd243d9e2d75d7ecc74eb546c87653
+    int [] result = new int[12];
     int offset = 0;
     offset = zzUnpackAttribute(ZZ_ATTRIBUTE_PACKED_0, offset, result);
     return result;
@@ -313,11 +277,7 @@ class Yylex {
     char [] map = new char[0x110000];
     int i = 0;  /* index in packed string  */
     int j = 0;  /* index in unpacked array */
-<<<<<<< HEAD
-    while (i < 86) {
-=======
     while (i < 88) {
->>>>>>> 20d68a0e05cd243d9e2d75d7ecc74eb546c87653
       int  count = packed.charAt(i++);
       char value = packed.charAt(i++);
       do map[j++] = value; while (--count > 0);
@@ -683,73 +643,45 @@ class Yylex {
           case 1: 
             { return ParserTokens.ERROR;
             }
-<<<<<<< HEAD
-          case 9: break;
-=======
-          case 10: break;
->>>>>>> 20d68a0e05cd243d9e2d75d7ecc74eb546c87653
+          case 11: break;
           case 2: 
             { value = Integer.parseInt(yytext());
 						  yyparser.yylval = new ParserVal(value);
 						  return ParserTokens.NUMBER;
             }
-<<<<<<< HEAD
-          case 10: break;
-          case 3: 
-            { return ParserTokens.ADDOP;
-            }
-          case 11: break;
-          case 4: 
-            { return ParserTokens.SUBOP;
-            }
           case 12: break;
-          case 5: 
-            { return ParserTokens.LPAREN;
-            }
-          case 13: break;
-          case 6: 
-            { return ParserTokens.RPAREN;
-            }
-          case 14: break;
-          case 7: 
-            { return ParserTokens.NEWLINE;
-            }
-          case 15: break;
-          case 8: 
-            { /* do nothing-skip whitespace */
-            }
-          case 16: break;
-=======
-          case 11: break;
           case 3: 
             { return ParserTokens.MULOP;
             }
-          case 12: break;
-          case 4: 
-            { return ParserTokens.ADDOP;
-            }
           case 13: break;
-          case 5: 
-            { return ParserTokens.SUBOP;
+          case 4: 
+            { return ParserTokens.DIVOP;
             }
           case 14: break;
-          case 6: 
-            { return ParserTokens.LPAREN;
+          case 5: 
+            { return ParserTokens.ADDOP;
             }
           case 15: break;
-          case 7: 
-            { return ParserTokens.RPAREN;
+          case 6: 
+            { return ParserTokens.SUBOP;
             }
           case 16: break;
-          case 8: 
-            { return ParserTokens.NEWLINE;
+          case 7: 
+            { return ParserTokens.LPAREN;
             }
           case 17: break;
-          case 9: 
-            { /* do nothing-skip whitespace */
+          case 8: 
+            { return ParserTokens.RPAREN;
             }
           case 18: break;
->>>>>>> 20d68a0e05cd243d9e2d75d7ecc74eb546c87653
+          case 9: 
+            { return ParserTokens.NEWLINE;
+            }
+          case 19: break;
+          case 10: 
+            { /* do nothing-skip whitespace */
+            }
+          case 20: break;
           default:
             zzScanError(ZZ_NO_MATCH);
         }

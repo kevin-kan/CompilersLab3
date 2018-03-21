@@ -9,26 +9,26 @@ import java.io.*;
 %token <ival> NUMBER
 %token <sval> ADDOP SUBOP MULOP DIVOP LPAREN RPAREN NEWLINE ERROR 
 %%
-explist:   exp NEWLINE explist	{ System.out.println("explist: exp NEWLINE explist"); }
-         | exp					{ System.out.println("explist: exp"); }
+explist:   exp NEWLINE explist	
+         | exp					
 ;
 exp:       term addop exp
          | term
-		 | error 				{ System.out.println("error"); } // error recovery
+		 | error 				
 ;
-addop:     ADDOP				{ System.out.println("addop: ADDOP"); }
-         | SUBOP
+addop:     ADDOP				
+         | SUBOP                
 ; 
 term:      factor mulop term
          | factor
 ;
-mulop:     MULOP
-         | DIVOP
+mulop:     MULOP                
+         | DIVOP               
 ; 
-factor:    LPAREN exp RPAREN	{ System.out.println("factor: LPAREN exp RPAREN"); }
-         | number				{ System.out.println("factor: number"); }
+factor:    LPAREN exp RPAREN	
+         | number				
 ; 
-number:    NUMBER				{ System.out.println("number: NUMBER: "+$1); }
+number:    NUMBER				
 ;
 %%
    
@@ -38,10 +38,13 @@ private static Yylex lexer;
 /* interface to the lexer */
 private int yylex()
 {
+    String s = "";
     int retVal = -1;
     try
 	{
 		retVal = lexer.yylex();
+        s += lexer.yytext();
+        System.out.print(s);
     }
 	catch (IOException e)
 	{
@@ -53,7 +56,7 @@ private int yylex()
 /* error reporting */
 public void yyerror (String error)
 {
-    System.err.println("Error : " + error + " at line " + 
+    System.err.println("\nError : " + error + " at line " + 
 		lexer.getLine() + " column " + 
 		lexer.getCol() + ". Got: " + lexer.yytext());
 }

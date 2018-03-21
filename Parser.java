@@ -299,10 +299,12 @@ private static Yylex lexer;
 /* interface to the lexer */
 private int yylex()
 {
+    String s = "";
     int retVal = -1;
     try
 	{
-		retVal = lexer.yylex();
+        s += lexer.yytext();
+        System.out.print(s);
     }
 	catch (IOException e)
 	{
@@ -314,7 +316,7 @@ private int yylex()
 /* error reporting */
 public void yyerror (String error)
 {
-    System.err.println("Error : " + error + " at line " + 
+    System.err.println("\nError : " + error + " at line " + 
 		lexer.getLine() + " column " + 
 		lexer.getCol() + ". Got: " + lexer.yytext());
 }
@@ -324,7 +326,7 @@ public Parser (Reader r)
 {
 	lexer = new Yylex(r, this);
 }
-//#line 264 "Parser.java"
+//#line 266 "Parser.java"
 //###############################################################
 // method: yylexdebug : check lexer state
 //###############################################################
@@ -478,35 +480,6 @@ boolean doaction;
     switch(yyn)
       {
 //########## USER-SUPPLIED ACTIONS ##########
-case 1:
-//#line 12 "mathexpr.y"
-{ System.out.println("explist: exp NEWLINE explist"); }
-break;
-case 2:
-//#line 13 "mathexpr.y"
-{ System.out.println("explist: exp"); }
-break;
-case 5:
-//#line 17 "mathexpr.y"
-{ System.out.println("error"); }
-break;
-case 6:
-//#line 19 "mathexpr.y"
-{ System.out.println("addop: ADDOP"); }
-break;
-case 12:
-//#line 28 "mathexpr.y"
-{ System.out.println("factor: LPAREN exp RPAREN"); }
-break;
-case 13:
-//#line 29 "mathexpr.y"
-{ System.out.println("factor: number"); }
-break;
-case 14:
-//#line 31 "mathexpr.y"
-{ System.out.println("number: NUMBER: "+val_peek(0).ival); }
-break;
-//#line 441 "Parser.java"
 //########## END OF USER-SUPPLIED ACTIONS ##########
     }//switch
     //#### Now let's reduce... ####

@@ -34,11 +34,11 @@ public class MathExprParser implements ParserTokens
 		int result = yyparser.yyparse();
 		if (result == 0) // 0 if no error
 		{
-			System.out.println("Parse successful");
+			System.out.println("\nParse successful");
 		}
 		else
 		{
-			System.out.println("Parse errors\n");
+			System.out.println("\nParse errors\n");
 		}
 	}
 
