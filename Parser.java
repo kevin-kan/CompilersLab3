@@ -18,7 +18,8 @@
 
 //#line 6 "mathexpr.y"
 import java.io.*;
-//#line 19 "Parser.java"
+import java.util.*; 
+//#line 20 "Parser.java"
 
 
 
@@ -160,37 +161,40 @@ final ParserVal dup_yyval(ParserVal val)
 public final static short YYERRCODE=256;
 final static short yylhs[] = {                           -1,
     0,    0,    1,    1,    1,    3,    3,    2,    2,    5,
-    5,    4,    4,    6,
+    5,    4,    4,    6,    6,
 };
 final static short yylen[] = {                            2,
     3,    1,    3,    1,    1,    1,    1,    3,    1,    1,
-    1,    3,    1,    1,
+    1,    3,    1,    2,    1,
 };
 final static short yydefred[] = {                         0,
-    5,   14,    0,    0,    0,    0,    0,   13,    0,    0,
-    6,    7,    0,   10,   11,    0,   12,    1,    3,    8,
+    5,   15,    0,    0,    0,    0,    0,    0,   13,   14,
+    0,    0,    6,    7,    0,   10,   11,    0,   12,    1,
+    3,    8,
 };
-final static short yydgoto[] = {                          4,
-    5,    6,   13,    7,   16,    8,
+final static short yydgoto[] = {                          5,
+    6,    7,   15,    8,   18,    9,
 };
-final static short yysindex[] = {                      -251,
-    0,    0, -251,    0, -260, -250, -248,    0, -249, -251,
-    0,    0, -251,    0,    0, -255,    0,    0,    0,    0,
+final static short yysindex[] = {                      -252,
+    0,    0, -255, -252,    0, -258, -250, -242,    0,    0,
+ -248, -252,    0,    0, -252,    0,    0, -245,    0,    0,
+    0,    0,
 };
 final static short yyrindex[] = {                         0,
-    0,    0,    0,    0,   15,    3,    1,    0,    0,    0,
+    0,    0,    0,    0,    0,   13,    3,    1,    0,    0,
     0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
+    0,    0,
 };
-final static short yygindex[] = {                         6,
-   -3,    2,    0,    0,    0,    0,
+final static short yygindex[] = {                         4,
+   -4,    2,    0,    0,    0,    0,
 };
 final static int YYTABLESIZE=267;
 static short yytable[];
 static { yytable();}
 static void yytable(){
-yytable = new short[]{                          9,
-    9,    2,    4,   10,    1,    2,    3,   11,   12,   19,
-    3,   14,   15,   17,    2,   18,    0,   20,    0,    0,
+yytable = new short[]{                         11,
+    9,   10,    4,    1,    2,   12,    3,   13,   14,    4,
+   21,    2,    2,    3,   19,   20,    4,   16,   17,   22,
     0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
     0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
     0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
@@ -221,9 +225,9 @@ yytable = new short[]{                          9,
 static short yycheck[];
 static { yycheck(); }
 static void yycheck() {
-yycheck = new short[] {                          3,
-    0,  257,    0,  264,  256,  257,  262,  258,  259,   13,
-  262,  260,  261,  263,    0,   10,   -1,   16,   -1,   -1,
+yycheck = new short[] {                          4,
+    0,  257,    0,  256,  257,  264,  259,  258,  259,  262,
+   15,  257,    0,  259,  263,   12,  262,  260,  261,   18,
    -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
    -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
    -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
@@ -251,7 +255,7 @@ yycheck = new short[] {                          3,
    -1,   -1,   -1,  263,  264,  263,  264,
 };
 }
-final static short YYFINAL=4;
+final static short YYFINAL=5;
 final static short YYMAXTOKEN=265;
 final static String yyname[] = {
 "end-of-file",null,null,null,null,null,null,null,null,null,null,null,null,null,
@@ -288,6 +292,7 @@ final static String yyrule[] = {
 "mulop : DIVOP",
 "factor : LPAREN exp RPAREN",
 "factor : number",
+"number : SUBOP NUMBER",
 "number : NUMBER",
 };
 
@@ -295,38 +300,87 @@ final static String yyrule[] = {
    
 /* reference to the lexer object */
 private static Yylex lexer;
-
+private ArrayList<Integer> Apple = new ArrayList<Integer>();
+private int E_FLAG;
+private String explist="Input: ";
 /* interface to the lexer */
 private int yylex()
 {
-    String s = "";
     int retVal = -1;
     try
 	{
-        s += lexer.yytext();
-        System.out.print(s);
+		retVal = lexer.yylex();
     }
 	catch (IOException e)
 	{
 		System.err.println("IO Error:" + e);
     }
+  //if the previous char was newline and reject flag is false then accept and set rejet true
+  
+  if(Apple.size()>=1){
+    if(Apple.get(Apple.size()-1)==264&&E_FLAG==0){ // ADD or for eof 
+        System.out.print(explist);
+        System.out.println("ACCEPT\n-------------------------\n");
+        explist="Input: ";
+    }
+    if(Apple.get(Apple.size()-1)==264&&E_FLAG!=0){
+            System.out.print(explist);
+            System.out.println("REJECT\n-------------------------\n");
+            E_FLAG=0;
+            explist="Input: ";
+    }
+  }
+    explist=explist+lexer.yytext();
+    Apple.add(retVal);
     return retVal;
+
 }
-	
+
+public String decode(){
+    
+    int val= Apple.get(Apple.size()-2);
+    switch(val)
+    {
+        case 257:
+            return "number";
+        case 258:
+            return "ADDOP";
+        case 259:
+            return "SUBOP";
+        case 260:
+            return "MULOP";
+        case 261:
+            return "DIVOP";
+        case 262:
+            return "LPAREN";
+        case 263:
+            return "RPAREN";
+        case 264:
+            return "NEWLINE";
+        case 265:
+            return "ERROR";
+    }
+    return "FAIL";
+}
 /* error reporting */
 public void yyerror (String error)
-{
-    System.err.println("\nError : " + error + " at line " + 
-		lexer.getLine() + " column " + 
-		lexer.getCol() + ". Got: " + lexer.yytext());
+{   if(Apple.size()>=2){//handle first line 1 char size 1 error
+        //implement case handling for specfic errors
+        System.err.println("Error : " + error + " at line " + 
+            lexer.getLine() + " column " + 
+            lexer.getCol() + ". Got: " + decode() +" followed by an "+yyname[yychar]);
+    }
+       E_FLAG=1;
+
+    
 }
 
 /* constructor taking in File Input */
 public Parser (Reader r)
-{
+{   
 	lexer = new Yylex(r, this);
 }
-//#line 266 "Parser.java"
+//#line 320 "Parser.java"
 //###############################################################
 // method: yylexdebug : check lexer state
 //###############################################################

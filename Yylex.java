@@ -32,9 +32,10 @@ class Yylex {
    * Translates characters to character classes
    */
   private static final String ZZ_CMAP_PACKED = 
-    "\11\0\1\12\1\11\1\13\1\13\1\11\22\0\1\12\7\0\1\7"+
+    "\11\0\1\12\1\11\1\12\1\12\1\11\22\0\1\12\7\0\1\7"+
     "\1\10\1\3\1\5\1\0\1\6\1\0\1\4\12\2\7\0\32\1"+
-    "\6\0\32\1\12\0\1\13\u1fa2\0\1\13\1\13\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\udfe6\0";
+    "\6\0\32\1\12\0\1\12\32\0\1\12\u15df\0\1\12\u097f\0\13\12"+
+    "\35\0\1\12\1\12\5\0\1\12\57\0\1\12\u0fa0\0\1\12\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\ud00f\0";
 
   /** 
    * Translates characters to character classes
@@ -76,8 +77,8 @@ class Yylex {
   private static final int [] ZZ_ROWMAP = zzUnpackRowMap();
 
   private static final String ZZ_ROWMAP_PACKED_0 =
-    "\0\0\0\14\0\30\0\44\0\14\0\14\0\14\0\14"+
-    "\0\14\0\14\0\60\0\74";
+    "\0\0\0\13\0\26\0\41\0\13\0\13\0\13\0\13"+
+    "\0\13\0\13\0\54\0\67";
 
   private static int [] zzUnpackRowMap() {
     int [] result = new int[12];
@@ -104,11 +105,11 @@ class Yylex {
 
   private static final String ZZ_TRANS_PACKED_0 =
     "\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11"+
-    "\1\12\1\13\1\14\16\0\1\3\14\0\1\4\22\0"+
-    "\1\13\14\0\1\14\1\0";
+    "\1\12\1\13\1\14\14\0\1\3\13\0\1\4\21\0"+
+    "\1\13\1\14\11\0\2\14";
 
   private static int [] zzUnpackTrans() {
-    int [] result = new int[72];
+    int [] result = new int[66];
     int offset = 0;
     offset = zzUnpackTrans(ZZ_TRANS_PACKED_0, offset, result);
     return result;
@@ -277,7 +278,7 @@ class Yylex {
     char [] map = new char[0x110000];
     int i = 0;  /* index in packed string  */
     int j = 0;  /* index in unpacked array */
-    while (i < 88) {
+    while (i < 112) {
       int  count = packed.charAt(i++);
       char value = packed.charAt(i++);
       do map[j++] = value; while (--count > 0);
