@@ -50,12 +50,14 @@ digit = [0-9]
 {digit}+				{ value = Integer.parseInt(yytext());
 						  yyparser.yylval = new ParserVal(value);
 						  return ParserTokens.NUMBER; }
-"*"					{ return ParserTokens.MULOP; }
+"*"						{ return ParserTokens.MULOP; }
 "/"						{ return ParserTokens.DIVOP; }
 "+"						{ return ParserTokens.ADDOP; }
 "-"						{ return ParserTokens.SUBOP; }
 "("						{ return ParserTokens.LPAREN; }
 ")"						{ return ParserTokens.RPAREN; }
 [\r\n]+					{ return ParserTokens.NEWLINE; }
+"\n"					{ return ParserTokens.NEWLINE; }
 [ \t]+					{/* do nothing-skip whitespace */}
+[ \s]+					{/* do nothing-skip whitespace */}
 .						{ return ParserTokens.ERROR; }
